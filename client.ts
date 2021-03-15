@@ -4,11 +4,12 @@
 import * as Phaser from "phaser";
 
 interface ICoords {
-	[key: string]: {
-		x: number;
-		y: number;
-		frame: number;
-	}
+
+  [key: string]: {
+    x: number;
+    y: number;
+    frame: number;
+  }
 }
 
 
@@ -75,7 +76,7 @@ class GameScene extends Phaser.Scene {
 		this.wsClient.onmessage = (wsMsgEvent) => {
 					const allCoords: ICoords = JSON.parse(wsMsgEvent.data);
 					for (const playerId of Object.keys(allCoords)) {
-						if (playerId === this.id) {
+						if (playerId this.id) {
 							// we don't need to update ourselves
 							continue;
 						}
@@ -102,6 +103,7 @@ class GameScene extends Phaser.Scene {
 			/**
 			   * Create the game objects required by the scene
 			   */
+
   public create() {
     // Create the TileMap and the Layer
     const tileMap = this.add.tilemap("map", 16, 16);
@@ -225,3 +227,4 @@ class GameScene extends Phaser.Scene {
  window.addEventListener("load", () => {
    new LabDemoGame(config);
  });
+
